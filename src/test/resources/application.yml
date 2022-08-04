@@ -1,0 +1,33 @@
+spring:
+  mongodb:
+    embedded:
+      storage:
+        oplogSize: 10
+        repl-set-name: rs0
+      version: "5.0.5"
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      group-id: receipt-group-1
+      auto-offset-reset: earliest
+      enable-auto-commit: false
+      properties:
+        spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
+        spring.deserializer.value.delegate.class: fr.test.test.compute.config.kafka.KafkaEventDeserializer
+    producer:
+      bootstrap.servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: fr.test.test.compute.config.kafka.KafkaEventSerializer
+management:
+  metrics:
+    export:
+      datadog:
+        api-key: DATADOG_API_KEY
+bpi:
+  kafka:
+    topic:
+      payment: payment_topic
+      receipt: receipt_topic
+    group-id: kafka-group
