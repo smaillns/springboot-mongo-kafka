@@ -15,7 +15,7 @@ spring:
         spring.deserializer.value.delegate.class: fr.test.test.compute.config.kafka.KafkaEventDeserializer
     producer:
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: fr.test.test.compute..config.kafka.KafkaEventSerializer
+      value-serializer: fr.test.test.compute.config.kafka.KafkaEventSerializer
       properties:
         interceptor.classes: fr.bpifrance.cfr.compute.kafka.logging.interceptor.KafkaLoggingProducerInterceptor
   data:
