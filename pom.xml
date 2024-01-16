@@ -5,17 +5,16 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.6.2</version>
+        <version>3.2.1</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>fr.test.test.compute</groupId>
-    <artifactId>cfr-ms-overdue</artifactId>
-    <version>0.0.19-SNAPSHOT</version>
+    <groupId>com.example.demo</groupId>
+    <artifactId>ms-demo</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
     <name>test-microservice</name>
-    <description>A Microservice to handle payment</description>
+    <description>A Microservice to handle kafka Events</description>
     <properties>
-        <java.version>11</java.version>
-        <cucumber.version>7.0.0</cucumber.version>
+        <java.version>17</java.version>
         <embedded-mongo.version>3.3.1</embedded-mongo.version>
     </properties>
     <dependencies>
@@ -37,20 +36,11 @@
             <artifactId>spring-kafka</artifactId>
         </dependency>
 
-        <!-- DevOps -->
+        <!-- Ops -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-
-        <!-- Config -->
-        <dependency>
-            <groupId>io.awspring.cloud</groupId>
-            <artifactId>spring-cloud-starter-aws-secrets-manager-config</artifactId>
-            <version>2.3.3</version>
-        </dependency>
-        
-        <!-- Observability -->
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-prometheus</artifactId>
@@ -70,52 +60,28 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>de.flapdoodle.embed</groupId>
-            <artifactId>de.flapdoodle.embed.mongo</artifactId>
+            <artifactId>de.flapdoodle.embed.mongo.spring3x</artifactId>
+            <version>4.12.0</version>
             <scope>test</scope>
         </dependency>
+
+
         <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka-test</artifactId>
             <scope>test</scope>
         </dependency>
+
         <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
-            <version>3.8.0</version>
+            <groupId>org.testcontainers</groupId>
+            <artifactId>kafka</artifactId>
+            <version>1.19.3</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-junit-jupiter</artifactId>
-            <version>${mockito.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-inline</artifactId>
-            <version>${mockito.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-java</artifactId>
-            <version>${cucumber.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-spring</artifactId>
-            <version>${cucumber.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>io.cucumber</groupId>
-            <artifactId>cucumber-junit</artifactId>
-            <version>${cucumber.version}</version>
-            <scope>test</scope>
-        </dependency>
+
         <dependency>
             <groupId>org.awaitility</groupId>
             <artifactId>awaitility</artifactId>
@@ -137,31 +103,19 @@
                     </excludes>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M1</version>
-                <configuration>
-                    <argLine>@{argLine} -Xmx2048m</argLine>
-                    <testFailureIgnore>true</testFailureIgnore>
-                    <excludes>
-                        <exclude>*ITests</exclude>
-                    </excludes>
-                </configuration>
-            </plugin>
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.maven.plugins</groupId>-->
+            <!--                <artifactId>maven-surefire-plugin</artifactId>-->
+            <!--                <version>3.0.0-M1</version>-->
+            <!--                <configuration>-->
+            <!--                    <argLine>@{argLine} -Xmx2048m</argLine>-->
+            <!--                    <testFailureIgnore>true</testFailureIgnore>-->
+            <!--                    <excludes>-->
+            <!--                        <exclude>*ITests</exclude>-->
+            <!--                    </excludes>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
         </plugins>
     </build>
-
-    <profiles>
-        <profile>
-            <id>dev</id>
-            <activation>
-                <activeByDefault>true</activeByDefault>
-            </activation>
-            <properties>
-                <spring.profiles.active>dev</spring.profiles.active>
-            </properties>
-        </profile>
-    </profiles>
 
 </project>

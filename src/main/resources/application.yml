@@ -1,32 +1,26 @@
+server:
+  port: 8080
 spring:
-  mongodb:
-    embedded:
-      storage:
-        oplogSize: 10
-        repl-set-name: rs0
-      version: "5.0.5"
+  application:
+    name: test-microservice
   kafka:
+    bootstrap-servers: localhost:9092
     consumer:
-      bootstrap-servers: localhost:9092
+      auto-offset-reset: latest
+      group-id: test-group-id
       value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
       key-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
-      group-id: kafka-group-id
-      auto-offset-reset: earliest
-      enable-auto-commit: false
       properties:
         spring.deserializer.key.delegate.class: org.apache.kafka.common.serialization.StringDeserializer
         spring.deserializer.value.delegate.class: com.example.demo.config.kafka.KafkaEventDeserializer
     producer:
-      bootstrap.servers: localhost:9092
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: com.example.demo.config.kafka.KafkaEventSerializer
-
-de:
-  flapdoodle:
+#      properties:
+#         interceptor.classes: ....KafkaLoggingProducerInterceptor
+  data:
     mongodb:
-      embedded:
-        version: 4.0.2
-
+      uri: mongodb://localhost:27017,localhost:27018,localhost:27019/test-kafka?replicaSet=rs0
 demo:
   kafka:
     topic:
