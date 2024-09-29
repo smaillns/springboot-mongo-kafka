@@ -1,4 +1,4 @@
-package com.example.demo.core.domain.port.api;
+package com.example.demo.core.domain.service;
 
 import com.example.demo.core.domain.model.Payment;
 

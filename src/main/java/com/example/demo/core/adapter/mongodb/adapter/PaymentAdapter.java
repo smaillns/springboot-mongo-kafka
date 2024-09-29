@@ -1,10 +1,10 @@
-package com.example.demo.core.infra.mongodb.adapter;
+package com.example.demo.core.adapter.mongodb.adapter;
 
 import com.example.demo.common.exception.NotFoundException;
 import com.example.demo.core.domain.model.Payment;
-import com.example.demo.core.domain.port.infra.PaymentDataGateway;
-import com.example.demo.core.infra.mongodb.respository.PaymentRepository;
-import com.example.demo.core.infra.mongodb.model.MGPayment;
+import com.example.demo.core.port.infra.PaymentDataGateway;
+import com.example.demo.core.adapter.mongodb.respository.PaymentRepository;
+import com.example.demo.core.adapter.mongodb.model.MGPayment;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

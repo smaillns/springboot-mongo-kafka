@@ -1,6 +1,6 @@
-package com.example.demo.core.api.messaging;
+package com.example.demo.core.adapter.messaging;
 
-import com.example.demo.core.domain.port.api.PaymentRequester;
+import com.example.demo.core.domain.service.PaymentRequester;
 import com.example.demo.common.event.PaymentEvent;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

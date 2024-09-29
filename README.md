@@ -29,7 +29,8 @@ The Payment Service follows the hexagonal (or ports/adapter) architecture:
 ```
 src/
     |-- common/
-    |   |-- event/ #
+    |   |-- event/  
+            └──PaymentEvent.java
     |   |-- exception/
     |
     |-- config/
@@ -37,21 +38,24 @@ src/
     |   |-- mongodb/
     |
     |-- core/
-        |-- api/messaging/
-        |   |-- model/ 
-        |   |-- KafkaConsumer.java
-        |
+        |-- port/infra/
+                └──PaymentDataGateway
         |-- domain/
         |   |-- model/
-        |   |-- port/
-        |   |  |-- payment-gateways #interfaces
+                └──Payment.java  
         |   |-- service/
-        |
-        |-- infra/
+                └──PaymentService.java    # interface
+                └──PaymentServiceImpl.java
+        |-- adapter/
+            |-- messaging/
+            |   |-- model/
+            |   |   └──KPayment.java 
+            |   └──KPaymentConsumer.java
             |-- mongodb/
-            |   |-- adapter/
             |   |-- model/ 
+            |       └──MGPayment
             |   |-- respository
+            |   └──PaymentAdapter.java
     |
     |-- Application.java
     |
@@ -60,6 +64,7 @@ src/
 docker-compose.yml
 start-local-env.sh
 pom.xml
+README.md
 ```
 
 
@@ -147,7 +152,7 @@ mongodb://localhost:27017,localhost:27018,localhost:27019/?replicaSet=rs0
 
 ## Testing
 
-🚀 This project includes simple unit tests and integration tests to ensure the reliability and correctness of the payment service as it evolves
+🚀 This project includes simple unit and integration tests to ensure the reliability and correctness of the payment service as it evolves
 
 ##### Unit Tests:
 Example: PaymentServiceTest.java

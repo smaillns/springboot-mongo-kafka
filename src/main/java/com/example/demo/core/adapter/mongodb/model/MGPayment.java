@@ -1,4 +1,4 @@
-package com.example.demo.core.infra.mongodb.model;
+package com.example.demo.core.adapter.mongodb.model;
 
 import com.example.demo.core.domain.model.Payment;
 import lombok.Builder;

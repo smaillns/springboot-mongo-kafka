@@ -2,11 +2,9 @@ package com.example.demo.core.domain.service;
 
 
 import com.example.demo.core.domain.model.Payment;
-import com.example.demo.core.domain.port.api.PaymentRequester;
-import com.example.demo.core.domain.port.infra.PaymentDataGateway;
+import com.example.demo.core.port.infra.PaymentDataGateway;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 
 @Service

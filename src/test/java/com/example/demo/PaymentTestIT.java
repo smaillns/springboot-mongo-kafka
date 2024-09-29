@@ -2,7 +2,7 @@ package com.example.demo;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.example.demo.common.event.PaymentEvent;
-import com.example.demo.core.infra.mongodb.adapter.PaymentAdapter;
+import com.example.demo.core.adapter.mongodb.adapter.PaymentAdapter;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.common.serialization.StringDeserializer;

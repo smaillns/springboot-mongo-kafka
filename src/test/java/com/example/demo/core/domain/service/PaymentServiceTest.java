@@ -1,7 +1,7 @@
 package com.example.demo.core.domain.service;
 
 import com.example.demo.core.domain.model.Payment;
-import com.example.demo.core.domain.port.infra.PaymentDataGateway;
+import com.example.demo.core.port.infra.PaymentDataGateway;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

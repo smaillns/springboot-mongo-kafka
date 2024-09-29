@@ -1,4 +1,4 @@
-package com.example.demo.core.api.messaging.model;
+package com.example.demo.core.adapter.messaging.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.example.demo.core.domain.model.Payment;

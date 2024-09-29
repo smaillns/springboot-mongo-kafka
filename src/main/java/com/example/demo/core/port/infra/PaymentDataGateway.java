@@ -1,4 +1,4 @@
-package com.example.demo.core.domain.port.infra;
+package com.example.demo.core.port.infra;
 
 import com.example.demo.core.domain.model.Payment;
 
