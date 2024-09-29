@@ -16,8 +16,10 @@ public class PaymentService implements PaymentRequester {
     private final PaymentDataGateway paymentDataGateway;
 
     @Override
-    @Transactional(value = "mongoTransactionManager")
+    // @Transactional(value = "mongoTransactionManager")
     public void handlePaymentReceivedEvent(Payment payment) {
-        paymentDataGateway.savePayment(payment);
+        if(payment.isValid()) {
+            paymentDataGateway.savePayment(payment);
+        }
     }
 }

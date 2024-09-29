@@ -14,8 +14,7 @@ public class KafkaPaymentConsumer {
 
     private final PaymentRequester paymentRequester;
 
-    @KafkaListener(topics = "#{'${demo.kafka.topic.payment}'}",
-                   groupId = "#{'${demo.kafka.group-id}'}")
+    @KafkaListener(topics = "#{'${demo.kafka.topic.payment}'}", groupId = "#{'${demo.kafka.group-id}'}")
     public void consumePaymentEvents(PaymentEvent paymentEvent)  {
         paymentRequester.handlePaymentReceivedEvent(paymentEvent.extractModel());
     }

@@ -35,13 +35,14 @@ services:
       KAFKA_ALLOW_EVERYONE_IF_NO_ACL_FOUND: "true"
     depends_on:
       - zookeeper
+
   mongo1:
     container_name: mongo1
     image: mongo:4.0-xenial
     networks:
       - mongo-network
-#    volumes:
-#      - ./rs-init.sh:/scripts/rs-init.sh
+    volumes:
+      - ./rs-init.sh:/scripts/rs-init.sh
     ports:
       - 27017:27017
     links:

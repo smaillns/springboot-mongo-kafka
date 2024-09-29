@@ -1,5 +1,6 @@
 {
   "payload":{
-    "payment_id": 928973
+    "payment_id": 928973,
+    "paid_amount": 1000.09
   }
 }

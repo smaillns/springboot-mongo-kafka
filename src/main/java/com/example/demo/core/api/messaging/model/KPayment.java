@@ -7,6 +7,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.math.BigDecimal;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -16,9 +18,14 @@ public class KPayment {
     @JsonProperty("payment_id")
     private Integer paymentId;
 
+    @JsonProperty("paid_amount")
+    private BigDecimal amount;
+
 
     public Payment toModel() {
-        return new Payment(paymentId);
+        return Payment.builder()
+                .id(paymentId)
+                .amount(amount)
+                .build();
     }
-
 }
