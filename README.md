@@ -1,13 +1,10 @@
-# spring-boot-mongo-kafka
-
-
 # Microservice
 
 > Demo (Handle Kafka & Mongo)
 
 ## About
 
-this project uses [Spring Boot](https://spring.io/guides/gs/spring-boot/) that helps creating production-grade and
+this project uses [SpringBoot 3](https://spring.io/guides/gs/spring-boot/) that helps creating production-grade and
 stand-alone java applications & services with absolute minimum fuss.
 
 > This project implements a **Payment Service** using hexagonal architecture.
